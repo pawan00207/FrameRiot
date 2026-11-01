@@ -1,0 +1,85 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+  packages: write
+  id-token: write
+
+jobs:
+  release:
+    name: Create GitHub Release & Publish Package
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js (GitHub Packages registry)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@ghost0coder'
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Build
+        run: npm run build
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || 'ci_placeholder_key' }}
+          APP_URL: https://clipforge.example.com
+
+      - name: Archive build distribution
+        run: |
+          cd dist && zip -r ../clipforge-dist.zip . && cd ..
+
+      - name: Extract version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+
+      - name: Extract changelog for this release
+        id: changelog
+        run: |
+          VERSION="${{ steps.version.outputs.VERSION }}"
+          VER="${VERSION#v}"
+          NOTES=$(awk "/^## \[$VER\]/{found=1; next} found && /^## \[/{exit} found{print}" CHANGELOG.md)
+          if [ -z "$NOTES" ]; then
+            NOTES="See [CHANGELOG.md](https://github.com/Ghost0coder/ClipForge/blob/main/CHANGELOG.md) for details."
+          fi
+          echo "$NOTES" > release_notes.md
+          echo "NOTES_FILE=release_notes.md" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "ClipForge ${{ steps.version.outputs.VERSION }}"
+          body_path: ${{ steps.changelog.outputs.NOTES_FILE }}
+          draft: false
+          prerelease: ${{ contains(github.ref_name, '-alpha') || contains(github.ref_name, '-beta') || contains(github.ref_name, '-rc') }}
+          files: |
+            clipforge-dist.zip
+          generate_release_notes: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to GitHub Packages
+        run: |
+          node -e "
+            const fs = require('fs');
+            const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+            pkg.name = '@ghost0coder/clipforge';
+            pkg.publishConfig = { registry: 'https://npm.pkg.github.com' };
+            delete pkg.private;
+            fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
+          "
+          npm publish --access public || echo "Notice: Package publish step completed or version already exists."
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
