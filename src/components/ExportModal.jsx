@@ -30,7 +30,7 @@ export const ExportModal = () => {
     quality: 'high',
     watermark: {
       enabled: true,
-      text: 'ClipForge',
+      text: 'FrameRiot',
       position: 'bottom-right',
       opacity: 0.75,
     },
@@ -288,7 +288,7 @@ export const ExportModal = () => {
                                 watermark: { ...settings.watermark, text: e.target.value },
                               })
                             }
-                            placeholder="e.g. ClipForge or @channel"
+                            placeholder="e.g. FrameRiot or @channel"
                             className="w-full text-xs p-1.5 rounded-[4px] bg-white dark:bg-[#1A1A1A] border border-[#E5E5E5] dark:border-[#2A2A2A] text-[#171717] dark:text-[#EDEDED] outline-none"
                           />
                         </div>

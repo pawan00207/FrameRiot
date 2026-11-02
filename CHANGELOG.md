@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] — 2026-11-02
+
+### Added
+- FrameRiot brand identity, founder profile, and About modal.
+- Dark creator-studio design tokens and FrameRiot project/export defaults.
+- Redesigned project README and FrameRiot PWA metadata.
+
+### Changed
+- Existing IndexedDB project database and saved project format remain unchanged.
+
 ---
 
 ## [0.4.0] — 2026-10-26

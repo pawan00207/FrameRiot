@@ -11,14 +11,15 @@ import {
   Check,
   HelpCircle,
 } from 'lucide-react';
+import { brand } from '../config/brand';
 
 const ONBOARDING_STEPS = [
   {
     step: 1,
-    title: 'Welcome to ClipForge',
+    title: `Welcome to ${brand.appName}`,
     subtitle: 'Minimalist, powerful creator studio',
     description:
-      'ClipForge is an ultra-fast, CapCut-inspired browser video editor. Everything runs 100% locally with multi-track editing, undo/redo, and zero watermarks required.',
+      `${brand.appName} is a browser-based video editor. Edit with a multi-track timeline, undo/redo, and client-side exports.`,
     icon: Film,
     badge: 'Step 1 of 5',
     features: ['Non-destructive editing', 'Autosaved every 5 seconds', 'Offline PWA ready'],
@@ -113,7 +114,7 @@ export const OnboardingModal = ({ isOpen, onClose }) => {
           <div className="flex items-center gap-2">
             <HelpCircle className="w-4 h-4 text-[#3B82F6]" strokeWidth={1.5} />
             <span className="text-xs font-medium text-[#171717] dark:text-[#EDEDED]">
-              ClipForge Quick Tour
+              {brand.appName} Quick Tour
             </span>
           </div>
           <button

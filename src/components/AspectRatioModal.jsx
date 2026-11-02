@@ -4,10 +4,11 @@ import { useEditorStore } from '../store/editorStore';
 import { createDefaultProject } from '../utils/sampleData';
 import { saveProjectToDB } from '../utils/storage';
 import { toastSuccess } from '../store/toastStore';
+import { brand } from '../config/brand';
 
 export const AspectRatioModal = ({ isOpen, onClose, onCreated }) => {
   const { setProject, setRoute } = useEditorStore();
-  const [projectName, setProjectName] = useState('Untitled Project');
+  const [projectName, setProjectName] = useState(`${brand.appName} Project`);
   const [selectedRatio, setSelectedRatio] = useState('16:9');
   const [fps, setFps] = useState(30);
   const [isCustom, setIsCustom] = useState(false);
@@ -27,7 +28,7 @@ export const AspectRatioModal = ({ isOpen, onClose, onCreated }) => {
   const handleCreate = async () => {
     const newProj = createDefaultProject();
     newProj.id = `project_${Date.now()}`;
-    newProj.name = projectName.trim() || 'Untitled Project';
+    newProj.name = projectName.trim() || `${brand.appName} Project`;
     newProj.aspectRatio = selectedRatio;
     newProj.fps = Number(fps);
     if (isCustom) {

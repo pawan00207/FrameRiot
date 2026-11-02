@@ -1,11 +1,11 @@
 {
-  "name": "clipforge",
-  "version": "0.4.0",
+  "name": "frameriot",
+  "version": "2.0.0",
   "private": true,
-  "description": "Full-featured browser-based video editor inspired by CapCut with multi-track timeline, real-time effects, audio tools, keyframes, and Gemini AI creation tools.",
+  "description": "FrameRiot is a browser-based creator studio for multi-track video editing, real-time effects, audio tools, and client-side exports.",
   "author": {
-    "name": "Ghost0coder",
-    "url": "https://github.com/Ghost0coder"
+    "name": "Pawan Singh",
+    "url": "https://github.com/pawan00207"
   },
   "license": "Apache-2.0",
   "keywords": [
@@ -21,13 +21,13 @@
     "multi-track",
     "timeline"
   ],
-  "homepage": "https://github.com/Ghost0coder/ClipForge#readme",
+  "homepage": "https://github.com/pawan00207/FrameRiot#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ghost0coder/ClipForge.git"
+    "url": "git+https://github.com/pawan00207/FrameRiot.git"
   },
   "bugs": {
-    "url": "https://github.com/Ghost0coder/ClipForge/issues"
+    "url": "https://github.com/pawan00207/FrameRiot/issues"
   },
   "type": "module",
   "scripts": {

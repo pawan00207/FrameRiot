@@ -16,6 +16,7 @@ import {
 import { useEditorStore } from '../store/editorStore';
 import { useResponsive } from '../utils/useResponsive';
 import { getAllProjectsFromDB } from '../utils/storage';
+import { brand } from '../config/brand';
 
 export const AppNavigation = () => {
   const { route, setRoute, sidebarPinned, setSidebarPinned } = useEditorStore();
@@ -208,13 +209,13 @@ export const AppNavigation = () => {
       {/* Brand Header */}
       <div className="h-14 px-3 border-b border-[#E5E5E5] dark:border-[#2A2A2A] flex items-center justify-between">
         <div className="flex items-center gap-2.5 overflow-hidden">
-          <div className="w-7 h-7 rounded-[6px] bg-[#171717] text-white dark:bg-[#EDEDED] dark:text-[#171717] flex items-center justify-center shrink-0 shadow-xs">
+          <div className="w-7 h-7 rounded-[6px] bg-gradient-to-br from-[#FF2D7A] via-[#7C3AED] to-[#22D3EE] text-white flex items-center justify-center shrink-0 shadow-[0_0_16px_rgba(124,58,237,0.28)]">
             <Film className="w-4 h-4" strokeWidth={1.5} />
           </div>
           {isExpanded && (
             <div className="truncate">
-              <h1 className="text-xs font-semibold tracking-tight text-[#171717] dark:text-[#EDEDED]">ClipForge</h1>
-              <p className="text-[10px] text-[#737373] dark:text-[#A1A1A1]">Video Suite</p>
+              <h1 className="text-xs font-semibold tracking-tight text-[#171717] dark:text-[#EDEDED]">{brand.appName}</h1>
+              <p className="text-[10px] text-[#737373] dark:text-[#A1A1A1]">{brand.tagline}</p>
             </div>
           )}
         </div>
@@ -268,7 +269,7 @@ export const AppNavigation = () => {
       {isExpanded && (
         <div className="p-3 border-t border-[#E5E5E5] dark:border-[#2A2A2A]">
           <div className="bg-[#FAFAFA] dark:bg-[#1A1A1A] border border-[#E5E5E5] dark:border-[#2A2A2A] rounded-[8px] p-2.5">
-            <p className="text-[10px] font-medium text-[#171717] dark:text-[#EDEDED] mb-0.5">ClipForge Pro v2.5</p>
+            <p className="text-[10px] font-medium text-[#171717] dark:text-[#EDEDED] mb-0.5">{brand.appName} v2.0.0</p>
             <button
               onClick={() => setRoute('settings')}
               className="w-full mt-1 py-1 rounded-[6px] bg-white dark:bg-[#262626] border border-[#E5E5E5] dark:border-[#333333] text-[10px] font-medium text-[#171717] dark:text-[#EDEDED] hover:bg-[#F5F5F5] dark:hover:bg-[#333333] transition-colors cursor-pointer"

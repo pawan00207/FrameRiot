@@ -481,7 +481,7 @@ export class ExportPipeline {
         const a = document.createElement('a');
         a.href = downloadUrl;
         const ext = settings.format === 'gif' ? 'gif' : settings.format === 'mp4' ? 'mp4' : 'webm';
-        a.download = `${project.name.toLowerCase().replace(/\s+/g, '_')}_${settings.resolution || '1080p'}.${ext}`;
+        a.download = `FrameRiot_export.${ext}`;
         a.click();
 
         resolve(downloadUrl);
@@ -571,7 +571,7 @@ export class ExportPipeline {
 
       const a = document.createElement('a');
       a.href = downloadUrl;
-      a.download = `${project.name.toLowerCase().replace(/\s+/g, '_')}_audio.mp3`;
+      a.download = 'FrameRiot_export.mp3';
       a.click();
 
       onProgress({
@@ -671,7 +671,7 @@ export class ExportPipeline {
 
     const a = document.createElement('a');
     a.href = downloadUrl;
-    a.download = `${project.name.toLowerCase().replace(/\s+/g, '_')}_frame_${(settings.time || 0).toFixed(1)}s.png`;
+    a.download = `FrameRiot_export_frame_${(settings.time || 0).toFixed(1)}s.png`;
     a.click();
 
     onProgress({

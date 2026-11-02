@@ -1,14 +1,14 @@
 {
   "id": "/",
-  "name": "ClipForge Video Editor",
-  "short_name": "ClipForge",
-  "description": "Full-featured browser-based video editor with multi-track timeline, real-time effects, and audio tools.",
+  "name": "FrameRiot - Cut. Glitch. Riot. Go Viral.",
+  "short_name": "FrameRiot",
+  "description": "A browser-based creator studio for multi-track video editing, real-time effects, audio tools, and client-side exports.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "any",
-  "theme_color": "#0b0c10",
-  "background_color": "#0b0c10",
+  "theme_color": "#0b0b10",
+  "background_color": "#0b0b10",
   "icons": [
     {
       "src": "/pwa-192x192.png",

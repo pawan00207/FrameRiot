@@ -32,6 +32,7 @@ import { useResponsive } from '../utils/useResponsive';
 import { PWAInstallButton } from './PWAInstallButton';
 import { saveProjectToDB } from '../utils/storage';
 import { toastSuccess, toastWarning } from '../store/toastStore';
+import { brand } from '../config/brand';
 
 export const TopBar = () => {
   const {
@@ -373,7 +374,7 @@ export const TopBar = () => {
 
               {/* PWA Install */}
               <div className="pt-2 border-t border-[#E5E5E5] dark:border-[#2A2A2A] flex items-center justify-between">
-                <span className="text-xs text-[#737373] dark:text-[#A1A1A1]">Install ClipForge App</span>
+                <span className="text-xs text-[#737373] dark:text-[#A1A1A1]">Install {brand.appName} App</span>
                 <PWAInstallButton compact />
               </div>
 
@@ -418,11 +419,11 @@ export const TopBar = () => {
           title="About FrameRiot / Meet the Founder"
           className="flex items-center gap-2 pr-3 border-r border-[#E5E5E5] dark:border-[#2A2A2A] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7C3AED]"
         >
-          <div className="w-6 h-6 rounded-[6px] bg-[#171717] text-white dark:bg-[#EDEDED] dark:text-[#171717] flex items-center justify-center">
+          <div className="w-6 h-6 rounded-[6px] bg-gradient-to-br from-[#FF2D7A] via-[#7C3AED] to-[#22D3EE] text-white flex items-center justify-center shadow-[0_0_16px_rgba(124,58,237,0.28)]">
             <Film className="w-3.5 h-3.5" strokeWidth={1.5} />
           </div>
           <span className="font-medium text-xs tracking-tight text-[#171717] dark:text-[#EDEDED]">
-            FrameRiot
+            {brand.appName}
           </span>
         </button>
 

@@ -1,17 +1,34 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-background: #0B0B10;
+  --color-brand-surface: #14141C;
+  --color-brand-elevated: #1C1C27;
+  --color-brand-border: #2A2A3A;
+  --color-brand-text: #F4F4F8;
+  --color-brand-muted: #9A9AB0;
+  --color-brand-pink: #FF2D7A;
+  --color-brand-violet: #7C3AED;
+  --color-brand-cyan: #22D3EE;
+  --color-brand-success: #22C55E;
+  --color-brand-warning: #F59E0B;
+  --color-brand-danger: #EF4444;
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Bebas Neue', 'Outfit', sans-serif;
+}
+
 @layer base {
   :root {
-    /* Clean Minimalist Theme - Light Mode (Default) */
-    --bg-app: #FAFAFA;
+    color-scheme: light;
+    --bg-app: #F7F7FA;
     --bg-panel: #FFFFFF;
-    --bg-surface: #F5F5F5;
-    --bg-surface-hover: #EEEEEE;
-    --border-subtle: #E5E5E5;
-    --border-strong: #D4D4D4;
-    --text-primary: #171717;
-    --text-secondary: #737373;
-    --text-muted: #A3A3A3;
+    --bg-surface: #F0F0F5;
+    --bg-surface-hover: #E8E8F0;
+    --border-subtle: #E2E2EC;
+    --border-strong: #CDCDDB;
+    --text-primary: #171720;
+    --text-secondary: #606073;
+    --text-muted: #89899C;
     
     /* Primary Action Button: solid charcoal */
     --btn-primary-bg: #171717;
@@ -25,9 +42,9 @@
     --btn-secondary-hover: #F5F5F5;
 
     /* Single Soft Accent: #3B82F6 (used sparingly for playhead, selection outline, active tab) */
-    --accent-blue: #3B82F6;
-    --accent-blue-hover: #2563EB;
-    --accent-blue-subtle: #EFF6FF;
+    --accent-blue: #7C3AED;
+    --accent-blue-hover: #6D28D9;
+    --accent-blue-subtle: #F3EFFF;
 
     /* Video Canvas Surround (Neutral to preserve color accuracy) */
     --preview-bg: #F0F0F0;
@@ -56,16 +73,16 @@
   }
 
   .dark {
-    /* Clean Minimalist Theme - Dark Mode */
-    --bg-app: #111111;
-    --bg-panel: #1A1A1A;
-    --bg-surface: #222222;
-    --bg-surface-hover: #282828;
-    --border-subtle: #2A2A2A;
-    --border-strong: #383838;
-    --text-primary: #EDEDED;
-    --text-secondary: #A1A1A1;
-    --text-muted: #737373;
+    color-scheme: dark;
+    --bg-app: #0B0B10;
+    --bg-panel: #14141C;
+    --bg-surface: #1C1C27;
+    --bg-surface-hover: #252534;
+    --border-subtle: #2A2A3A;
+    --border-strong: #3A3A4D;
+    --text-primary: #F4F4F8;
+    --text-secondary: #B7B7C8;
+    --text-muted: #9A9AB0;
 
     /* Primary Action Button: #EDEDED with #171717 text */
     --btn-primary-bg: #EDEDED;
@@ -79,12 +96,12 @@
     --btn-secondary-hover: #242424;
 
     /* Single Soft Accent remains identical */
-    --accent-blue: #3B82F6;
-    --accent-blue-hover: #60A5FA;
-    --accent-blue-subtle: #1E293B;
+    --accent-blue: #FF2D7A;
+    --accent-blue-hover: #FF5B96;
+    --accent-blue-subtle: #351727;
 
     /* Video Canvas Surround (Neutral dark) */
-    --preview-bg: #0D0D0D;
+    --preview-bg: #0B0B10;
 
     /* Timeline Clips - Flat Muted Solid Colors (NO GRADIENTS) */
     --clip-video-bg: #1E293B;
@@ -125,7 +142,7 @@
   body {
     background-color: var(--bg-app);
     color: var(--text-primary);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-weight: 400;
     line-height: 1.5;
     user-select: none;
@@ -137,6 +154,46 @@
   button, input, select, textarea {
     font-family: inherit;
   }
+}
+
+/* Align existing hard-coded Tailwind surfaces with the creator-studio palette. */
+.dark [class~="dark:bg-[#111111]"],
+.dark [class~="bg-[#111111]"] {
+  background-color: #0B0B10;
+}
+
+.dark [class~="dark:bg-[#1A1A1A]"],
+.dark [class~="bg-[#1A1A1A]"],
+.dark [class~="dark:bg-[#151515]"],
+.dark [class~="bg-[#151515]"] {
+  background-color: #14141C;
+}
+
+.dark [class~="dark:bg-[#222222]"],
+.dark [class~="bg-[#222222]"],
+.dark [class~="dark:bg-[#262626]"],
+.dark [class~="bg-[#262626]"] {
+  background-color: #1C1C27;
+}
+
+.dark [class~="dark:border-[#2A2A2A]"],
+.dark [class~="border-[#2A2A2A]"] {
+  border-color: #2A2A3A;
+}
+
+.dark [class~="dark:text-[#3B82F6]"],
+.dark [class~="text-[#3B82F6]"] {
+  color: #FF2D7A;
+}
+
+.dark [class~="dark:bg-[#3B82F6]"],
+.dark [class~="bg-[#3B82F6]"] {
+  background-color: #FF2D7A;
+}
+
+.dark [class~="dark:border-[#3B82F6]"],
+.dark [class~="border-[#3B82F6]"] {
+  border-color: #FF2D7A;
 }
 
 /* Safe area padding utilities for notched mobile devices */

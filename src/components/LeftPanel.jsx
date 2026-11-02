@@ -70,6 +70,7 @@ import { toastError, toastSuccess, } from '../store/toastStore';
 import { generateSampleVideoBlob } from '../utils/sampleVideo';
 import { TRANSITION_CATEGORIES } from '../utils/transitions';
 import { TransitionThumbnail } from './TransitionThumbnail';
+import { brand } from '../config/brand';
 
 function audioBufferToWavBlob(buffer) {
   const numChannels = buffer.numberOfChannels;
@@ -319,7 +320,7 @@ export const LeftPanel = ({ mobileDrawer = false, onClose }) => {
   const [aiImageAspectRatio, setAiImageAspectRatio] = useState('1:1');
 
   // Audio Tab Text-to-Speech States
-  const [ttsText, setTtsText] = useState('Welcome to ClipForge, the pro minimalist video studio.');
+  const [ttsText, setTtsText] = useState(`Welcome to ${brand.appName}, the creator video studio.`);
   const [ttsLang, setTtsLang] = useState('en-US');
   const [ttsVoice, setTtsVoice] = useState('Kore');
   const [ttsSpeed, setTtsSpeed] = useState(1.0);

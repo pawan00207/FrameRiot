@@ -23,6 +23,7 @@ import {
   parseProjectJson,
 } from '../utils/storage';
 import { createDefaultProject } from '../utils/sampleData';
+import { brand } from '../config/brand';
 
 export const ProjectManagerModal = () => {
   const {
@@ -95,7 +96,7 @@ export const ProjectManagerModal = () => {
 
   const handleCreateNewProject = () => {
     const newProj = createDefaultProject();
-    newProj.name = `Untitled Project ${projectsList.length + 1}`;
+    newProj.name = `${brand.appName} Project ${projectsList.length + 1}`;
     setProject(newProj);
     setProjectManagerOpen(false);
   };
@@ -108,7 +109,7 @@ export const ProjectManagerModal = () => {
       setProject(parsed);
       setProjectManagerOpen(false);
     } catch (err) {
-      alert(`Invalid ClipForge project file: ${err.message}`);
+      alert(`Invalid ${brand.appName} project file: ${err.message}`);
     }
   };
 

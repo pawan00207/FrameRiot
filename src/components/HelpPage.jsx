@@ -1,6 +1,7 @@
 import React from 'react';
 import { HelpCircle, Keyboard, BookOpen, Sparkles, MessageSquare, UserRound } from 'lucide-react';
 import { useEditorStore } from '../store/editorStore';
+import { brand } from '../config/brand';
 
 export const HelpPage = () => {
   const { openOnboarding, toggleShortcutsModal, openAboutModal } = useEditorStore();
@@ -38,7 +39,7 @@ export const HelpPage = () => {
             <Sparkles className="w-5 h-5 group-hover:scale-110 transition-transform" strokeWidth={1.5} />
           </div>
           <h2 className="text-sm font-semibold text-[#171717] dark:text-[#EDEDED]">Interactive Studio Tour</h2>
-          <p className="text-xs text-[#737373] dark:text-[#A1A1A1] mt-1">Take a quick 5-step guided tour of the ClipForge editor.</p>
+          <p className="text-xs text-[#737373] dark:text-[#A1A1A1] mt-1">Take a quick 5-step guided tour of {brand.appName}.</p>
         </div>
 
         <div

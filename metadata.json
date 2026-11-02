@@ -1,6 +1,6 @@
 {
-  "name": "ClipForge Video Editor",
-  "description": "Full-featured browser-based video editor inspired by CapCut with multi-track timeline, real-time effects, audio tools, keyframes, and AI creation tools.",
+  "name": "FrameRiot - Cut. Glitch. Riot. Go Viral.",
+  "description": "A browser-based creator studio for multi-track video editing, real-time effects, audio tools, and client-side exports.",
   "requestFramePermissions": ["camera", "microphone"],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

@@ -361,7 +361,7 @@ export const useEditorStore = create((set, get) => {
     openTemplateModal: (templateModalData) => set({ isTemplateModalOpen: true, templateModalData }),
     closeTemplateModal: () => set({ isTemplateModalOpen: false, templateModalData: null }),
 
-    theme: typeof window !== 'undefined' ? (localStorage.getItem('clipforge_theme') || 'light') : 'light',
+    theme: typeof window !== 'undefined' ? (localStorage.getItem('clipforge_theme') || 'dark') : 'dark',
     toggleTheme: () => {
       const nextTheme = get().theme === 'dark' ? 'light' : 'dark';
       try {

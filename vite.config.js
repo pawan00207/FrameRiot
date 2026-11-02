@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
+import { brand } from './src/config/brand.ts';
 
 export default defineConfig(() => {
   return {
@@ -14,11 +15,11 @@ export default defineConfig(() => {
         includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'icon.svg'],
         manifest: {
           id: '/',
-          name: 'ClipForge Video Editor',
-          short_name: 'ClipForge',
-          description: 'Full-featured browser-based video editor with multi-track timeline, real-time effects, and audio tools.',
-          theme_color: '#0b0c10',
-          background_color: '#0b0c10',
+          name: `${brand.appName} - ${brand.tagline}`,
+          short_name: brand.appName,
+          description: 'A browser-based creator studio for multi-track video editing, real-time effects, audio tools, and client-side exports.',
+          theme_color: '#0b0b10',
+          background_color: '#0b0b10',
           display: 'standalone',
           orientation: 'any',
           start_url: '/',

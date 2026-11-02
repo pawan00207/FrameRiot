@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <meta name="theme-color" content="#FAFAFA" />
+    <meta name="theme-color" content="#0B0B10" />
     <script>
       (function () {
         var _nc = function (lhs, rhsFn) { if (lhs != null) { return lhs; } else { return rhsFn(); } };
@@ -15,7 +15,7 @@
 
         try {
           var t = localStorage.getItem('clipforge_theme');
-          if (t === 'dark') {
+          if (t !== 'light') {
             document.documentElement.classList.add('dark');
           } else {
             document.documentElement.classList.remove('dark');
@@ -26,15 +26,15 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="ClipForge" />
+    <meta name="apple-mobile-web-app-title" content="FrameRiot" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/svg+xml" href="/icon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="manifest" href="/manifest.json" />
-    <title>ClipForge Video Editor</title>
-    <meta name="description" content="Full-featured browser-based video editor inspired by CapCut with multi-track timeline, real-time effects, audio tools, keyframes, and AI creation tools." />
-    <meta property="og:title" content="ClipForge Video Editor" />
-    <meta property="og:description" content="Full-featured browser-based video editor inspired by CapCut with multi-track timeline, real-time effects, audio tools, keyframes, and AI creation tools." />
+    <title>FrameRiot - Cut. Glitch. Riot. Go Viral.</title>
+    <meta name="description" content="FrameRiot is a browser-based creator studio for multi-track video editing, real-time effects, audio tools, and client-side exports." />
+    <meta property="og:title" content="FrameRiot - Cut. Glitch. Riot. Go Viral." />
+    <meta property="og:description" content="A browser-based creator studio for multi-track video editing, real-time effects, audio tools, and client-side exports." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -138,4 +138,3 @@
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
-

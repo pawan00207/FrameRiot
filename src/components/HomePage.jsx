@@ -5,6 +5,7 @@ import { getAllProjectsFromDB, saveProjectToDB } from '../utils/storage';
 import { createDefaultProject } from '../utils/sampleData';
 import { AspectRatioModal } from './AspectRatioModal';
 import { toastSuccess } from '../store/toastStore';
+import { brand } from '../config/brand';
 
 export const HomePage = () => {
   const { setProject, setRoute, openTemplateModal } = useEditorStore();
@@ -23,7 +24,7 @@ export const HomePage = () => {
   const handleQuickStart = async (mode) => {
     const newProj = createDefaultProject();
     newProj.id = `project_${Date.now()}`;
-    newProj.name = `${mode} Project`;
+    newProj.name = `${brand.appName} - ${mode}`;
     newProj.updatedAt = Date.now();
     await saveProjectToDB(newProj);
     setProject(newProj);
@@ -47,7 +48,7 @@ export const HomePage = () => {
             Welcome back, Creator
           </h1>
           <p className="text-xs text-[#737373] dark:text-[#A1A1A1] mt-0.5">
-            Create high-impact video masterpieces with pro editing tools and AI assistance.
+            {brand.tagline}
           </p>
         </div>
 
@@ -69,7 +70,7 @@ export const HomePage = () => {
         {/* New Project Card */}
         <div
           onClick={() => setIsAspectRatioModalOpen(true)}
-          className="lg:col-span-2 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-[12px] p-6 text-white flex flex-col justify-between cursor-pointer shadow-lg hover:shadow-xl transition-all group"
+          className="lg:col-span-2 bg-gradient-to-br from-[#FF2D7A] via-[#7C3AED] to-[#22D3EE] rounded-[12px] p-6 text-white flex flex-col justify-between cursor-pointer shadow-lg hover:shadow-xl transition-all group"
         >
           <div className="flex items-center justify-between">
             <div className="w-10 h-10 rounded-[8px] bg-white/20 backdrop-blur-md flex items-center justify-center">

@@ -9,6 +9,8 @@
 
 
 
+import { brand } from '../config/brand';
+
 export const FILTERS_LIST = [
   {
     id: 'none',
@@ -901,7 +903,7 @@ export function createDefaultProject() {
 
   return {
     id: projectId,
-    name: 'Untitled Project',
+    name: `${brand.appName} Project`,
     aspectRatio: '16:9',
     duration: 15.0,
     fps: 30,
